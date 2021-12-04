@@ -31,7 +31,7 @@ function useScrollDirection(onScrollUp: Function, onScrollDown: Function) {
   };
 
   // Todo: 빠른 디버깅을 위해 빠르게 스크롤되게 만듬 추후 1000정도로 수정 (by Kynel)
-  const throttleMs = 200;
+  const throttleMs = 1000;
   const onWheelThrottled = _.throttle(onWheel, throttleMs, {
     leading: true,
     trailing: false,
