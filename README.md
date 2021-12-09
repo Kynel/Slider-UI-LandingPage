@@ -8,3 +8,5 @@ Next, Typescript 에 대한 제반기술 학습을 위한 프로젝트이며,
 레퍼런스는 배달의 민족 서비스 소개 페이지 입니다.(https://www.baemin.com/)
 
 (build: https://source-code-new-kynel.vercel.app/)
+
+`“This project is licensed under the terms of the BSD 3-Clause License. with BROZ INC”`
