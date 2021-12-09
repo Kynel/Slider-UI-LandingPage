@@ -7,6 +7,6 @@ export type backgroundProps = {
   backgroundImage?: string;
 };
 
-export type DisplayControllerProps = {
-  show: Boolean;
+export type displayControllerProps = {
+  show: boolean;
 };

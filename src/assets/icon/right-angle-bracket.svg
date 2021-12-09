@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="45px" viewBox="0 0 20 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Line</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Mobile-/-home-/-page-4" transform="translate(-305.000000, -585.000000)" stroke="#FFFFFF" stroke-width="4">
+            <polyline id="Line" transform="translate(315.049463, 607.500000) scale(-1, -1) translate(-315.049463, -607.500000) " points="322.266667 587 307.098926 607.5 323 628"></polyline>
+        </g>
+    </g>
+</svg>

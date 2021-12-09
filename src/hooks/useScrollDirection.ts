@@ -14,12 +14,10 @@ function useScrollDirection(onScrollUp: Function, onScrollDown: Function) {
 
   const touchStartOffset = { x: 0, y: 0 };
   const onTouchStart = (event: any) => {
-    event.preventDefault();
     touchStartOffset.x = event.touches[0].pageX;
     touchStartOffset.y = event.touches[0].pageY;
   };
   const onTouchMove = (event: any) => {
-    event.preventDefault();
     const offset = { x: 0, y: 0 };
     offset.x = touchStartOffset.x - event.touches[0].pageX;
     offset.y = touchStartOffset.y - event.touches[0].pageY;
@@ -31,7 +29,7 @@ function useScrollDirection(onScrollUp: Function, onScrollDown: Function) {
   };
 
   // Todo: 빠른 디버깅을 위해 빠르게 스크롤되게 만듬 추후 1000정도로 수정 (by Kynel)
-  const throttleMs = 1000;
+  const throttleMs = 400;
   const onWheelThrottled = _.throttle(onWheel, throttleMs, {
     leading: true,
     trailing: false,

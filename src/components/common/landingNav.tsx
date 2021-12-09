@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import pages from 'defines/pages';
 
 import {
   landingNav,
@@ -6,10 +8,14 @@ import {
   AppDownloadButton,
   ScrollInstruction,
   DisplayController,
+  LogoWrapper,
 } from 'components/common/tempStyle';
-import pages from 'defines/pages';
 
 import { SectionData } from 'ts/interfaces';
+
+import logoBroz from 'assets/logo/logo-broz.svg';
+import logoOutsourcing from 'assets/logo/logo-outsourcing.svg';
+import logoTeam from 'assets/logo/logo-team.svg';
 
 const LandingNav = ({
   scrollYMove,
@@ -20,28 +26,44 @@ const LandingNav = ({
   currentSection: { current: number };
   sectionData: SectionData[];
 }) => {
-  console.log(sectionData[currentSection.current].isShowScrollIcon);
   return (
     <>
       <nav css={[landingNav]}>
         <Link href={pages.home}>
           <TempLogo>BROZ</TempLogo>
         </Link>
-        <DisplayController
-          show={sectionData[currentSection.current].isShowNavigation}
-        >
-          <Link href="/">
+        <Link href={pages.corporate}>
+          {sectionData[currentSection.current].isShowNavigation ? (
             <a>회사소개</a>
-          </Link>
-          <Link href="/">
+          ) : (
+            <LogoWrapper>
+              <Image src={logoBroz} />
+            </LogoWrapper>
+          )}
+        </Link>
+
+        <Link href={pages.si}>
+          {sectionData[currentSection.current].isShowNavigation ? (
             <a>아웃소싱</a>
-          </Link>
-          <Link href="/">
+          ) : (
+            <LogoWrapper>
+              <Image src={logoOutsourcing} />
+            </LogoWrapper>
+          )}
+        </Link>
+        <Link href="/">
+          {sectionData[currentSection.current].isShowNavigation ? (
             <a>팀 소개</a>
-          </Link>
-        </DisplayController>
+          ) : (
+            <LogoWrapper>
+              <Image src={logoTeam} />
+            </LogoWrapper>
+          )}
+        </Link>
       </nav>
-      <AppDownloadButton scrollYMove={scrollYMove} />
+      <AppDownloadButton
+        show={sectionData[currentSection.current].isShowAppDownload}
+      />
       <DisplayController
         show={sectionData[currentSection.current].isShowScrollIcon}
       >

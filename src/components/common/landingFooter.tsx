@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { css, jsx, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -7,10 +8,13 @@ import styled from '@emotion/styled';
 import pages from 'defines/pages';
 import media from 'styles/media';
 
+import downloadAppstore from 'assets/img/download-appstore.svg';
+import downloadPlaystore from 'assets/img/download-playstore.svg';
+
 export const footer = css`
   width: 100%;
   height: 100%;
-  background-color: #233332;
+  background-color: #232323;
   color: white;
   text-align: center;
   font-size: 1rem;
@@ -29,7 +33,7 @@ const appDownloadInfo = css`
     font-weight: bold;
   }
   p {
-    font-size: 1.1.em;
+    font-size: 1em;
     color: #6c757d;
   }
 `;
@@ -58,7 +62,6 @@ const corpInfo = css`
   a {
     font-size: 0.6em;
     margin-right: 0.2em;
-    text-decoration: underline;
   }
 `;
 
@@ -66,43 +69,42 @@ const LandingFooter = () => {
   return (
     <footer css={[footer]}>
       <div css={[appDownloadInfo]}>
-        <h2>모바일 큐레이션 가이드 - FAV</h2>
+        <h2>All Users have their own place, FAV</h2>
         <div css={[appDownloadImageWrapper]}>
-          <p>FAV는 당신의 여행을 실시간으로 도와드립니다.</p>
-          <p>어디갈지 고민되신다면 당장 설치하세요</p>
+          <p>
+            FAV는 당신의 상황에 맞는 공간을
+            <br />
+            재밌고 유용하게 이용할 수 있도록 도와줍니다.
+          </p>
+          <p>지금 설치하여 당신의 취향을 이용해보세요.</p>
         </div>
         <Link href="/">
-          <img
-            css={[appDownloadImage]}
-            src="https://triple-corp.com/static/images/btn-m-googleplay@2x.png"
-          />
+          <div css={[appDownloadImage]}>
+            <Image src={downloadPlaystore} />
+          </div>
         </Link>
         <Link href="/">
-          <img
-            css={[appDownloadImage]}
-            src="https://triple-corp.com/static/images/btn-m-appstore@2x.png"
-          />
+          <div css={[appDownloadImage]}>
+            <Image src={downloadAppstore} />
+          </div>
         </Link>
       </div>
       <div css={[corpInfo]}>
-        <small>ⓒTriple Corp. All rights reserved</small>
-        <small>사업자번호 581-87-00266</small>
-        <small>통신판매업신고번호 2017-성남분당-0275</small>
-        <div />
-        <small>
-          (주)BROZ는 통신판매중개자로서 통신판매의 당사자가 아니며 상품 거래정보
-          및 거래등에 대해 책임을 지지 않습니다.
-        </small>
-        <div />
-        <Link href={pages.termsOfService}>
-          <a target="_blank">이용약관,</a>
-        </Link>
         <Link href={pages.privacyPolicy}>
-          <a target="_blank">개인정보 취급방침,</a>
+          <a target="_blank">개인정보 취급방침 |</a>
+        </Link>
+        <Link href={pages.termsOfService}>
+          <a target="_blank">이용약관 |</a>
         </Link>
         <Link href={pages.locationBasedTermsOfService}>
           <a target="_blank">위치정보 이용약관</a>
         </Link>
+        <div />
+        <small>사업자 등록번호 : 288-81-02136</small>
+        <small>Contact : paeng@pkbroz.com</small>
+        <div />
+        <small>ⓒ Broz Corp. All rights reserved.</small>
+        <div />
       </div>
     </footer>
   );

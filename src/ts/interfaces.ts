@@ -4,21 +4,21 @@ export interface Size {
 }
 
 export interface Image {
-  alt: String;
-  src: String;
+  alt: string;
+  src: string;
 }
 
 export interface SectionData {
   background?: Image;
-  animationClass?: String;
-  className?: String;
-  title?: Image;
-  description?: String[];
-  subscription?: String[];
-  sectionId: String;
-  isShowAppDownload: Boolean;
-  isShowNavigation: Boolean;
-  isShowPagination: Boolean;
-  isShowRecruitment: Boolean;
-  isShowScrollIcon: Boolean;
+  animationClass?: string;
+  className?: string;
+  title?: string[];
+  description?: string[];
+  subscription?: string[];
+  sectionId: string;
+  isShowAppDownload: boolean;
+  isShowNavigation: boolean;
+  isShowPagination: boolean;
+  isShowRecruitment: boolean;
+  isShowScrollIcon: boolean;
 }

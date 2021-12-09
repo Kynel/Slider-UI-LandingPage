@@ -9,7 +9,7 @@ import styled from '@emotion/styled';
 import zIndex from 'styles/zIndex';
 import media from 'styles/media';
 
-import { scrollYMoveProps, DisplayControllerProps } from 'ts/types';
+import { scrollYMoveProps, displayControllerProps } from 'ts/types';
 
 // styles
 const mouseHoverTransition = css`
@@ -29,6 +29,9 @@ export const landingNav = css`
   align-items: center;
   justify-content: space-between;
   padding: 40px 6% 0px 6%;
+  ${media.tablet`
+    padding: 20px 6% 0px 
+  `}
   width: 100%;
   top: 0px;
   box-sizing: border-box;
@@ -37,10 +40,6 @@ export const landingNav = css`
     font-weight: bold;
     margin-left: 1em;
     color: white;
-    opacity: 0%;
-    ${media.tablet`
-      opacity: 100%;
-    `}
     ${mouseHoverTransition}
     cursor: pointer;
     transition: all 0.1s;
@@ -49,18 +48,17 @@ export const landingNav = css`
 
 // styped components
 export const TempLogo = styled.div`
-  width: 28%;
   height: auto;
   margin-right: auto;
   max-width: 142px;
-  font-size: max(5vw, 2rem);
+  font-size: min(5vw, 2.5rem);
   font-weight: bold;
   color: white;
   cursor: pointer;
   ${mouseHoverTransition}
 `;
 
-export const DisplayController = styled.div<DisplayControllerProps>`
+export const DisplayController = styled.div<displayControllerProps>`
   opacity: ${(props) => (props.show ? '100%' : '0%')};
   transition: all 0.2s;
 `;
@@ -86,23 +84,42 @@ export const ScrollInstruction = styled.figure`
   position: fixed;
   bottom: 3%;
   left: 6%;
+  ${media.tablet`
+    left: 50%;
+  `}
   width: 68px;
   height: 68px;
   animation: 0.5s ease 0s 3 normal none running ${jump};
   background-color: white;
   z-index: ${zIndex.scrollInstruction};
+  touch-action: none;
 `;
 
-export const AppDownloadButton = styled.button<scrollYMoveProps>`
+export const AppDownloadButton = styled.button<displayControllerProps>`
   position: fixed;
   z-index: ${zIndex.appDownloadButton};
-  display: inline-block;
-  bottom: 0px;
-  right: 0px;
-  width: 229px;
-  height: 300px;
+  display: ${(props) => (props.show ? 'inline-block' : 'none')};
+  width: 200px;
+  height: 200px;
+  top: 70vh;
+  transform: translateY(
+      ${(props: { show: boolean }) => (props.show ? '0px' : '-60vh')}
+    )
+    scale(${(props: { show: boolean }) => (props.show ? '1' : '0.7')});
+  right: 3%;
+  ${media.desktop`
+    display: inline-block;
+  `}
+
   background-color: white;
-  transform: translateY(${(props) => props.scrollYMove});
-  transition: transform 0.7s ease 0s;
+  transition: all 0.7s ease 0s;
   cursor: pointer;
+  touch-action: none;
+`;
+
+export const LogoWrapper = styled.div`
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  margin-left: 1rem;
 `;

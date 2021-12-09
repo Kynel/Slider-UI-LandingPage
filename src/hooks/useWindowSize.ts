@@ -14,7 +14,7 @@ function useWindowSize(onResize: Function): { current: Size } {
         height: window.innerHeight,
       };
       if (onResize) {
-        onResize(windowSize);
+        onResize(windowSize.current.height);
       }
     }
 
